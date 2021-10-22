@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { OwnerService } from '../owner.service';
+
+import { Owner } from '../owner.model';
 
 @Component({
   selector: 'app-owner-read',
@@ -7,11 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OwnerReadComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  owners: Owner[] = [];
 
   displayedColumns: string[] = ['id', 'name', 'email', 'acoes'];
+
+  constructor(private service: OwnerService) { }
+
+  ngOnInit(): void {
+    this.findAll();
+  }
+
+  findAll() {
+    this.service.findAll().subscribe(response => {
+      console.log(response);
+      this.owners = response;
+    })
+  }
 
 }
