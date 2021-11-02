@@ -12,7 +12,7 @@ export class OwnerReadComponent implements OnInit {
 
   owners: Owner[] = [];
 
-  displayedColumns: string[] = ['id', 'name', 'email', 'acoes'];
+  displayedColumns: string[] = ['id', 'name', 'email', 'tasks', 'acoes'];
 
   constructor(private service: OwnerService) { }
 

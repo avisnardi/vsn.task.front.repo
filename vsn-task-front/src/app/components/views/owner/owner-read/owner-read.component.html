@@ -3,6 +3,8 @@
         <h1>Owner</h1>
     </div>
 
+    <button class="mat-elevation-z8" mat-stroked-button color="primary">New Owner</button>
+
     <div class="mat-elevation-z8 content-table">
 
     <table class="table" mat-table [dataSource]="owners"> 
@@ -19,17 +21,33 @@
           <td mat-cell *matCellDef="let row"> {{ row.name }} </td>
         </ng-container>
 
-                <!-- E-Mail Column -->
-                <ng-container matColumnDef="email">
-                    <th mat-header-cell *matHeaderCellDef> E-MAIL </th>
-                    <td mat-cell *matCellDef="let row"> {{ row.email }} </td>
-                  </ng-container>
+        <!-- E-Mail Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> E-MAIL </th>
+            <td mat-cell *matCellDef="let row"> {{ row.email }} </td>
+          </ng-container>
 
+        <!-- Tasks Column -->
+        <ng-container matColumnDef="tasks">
+          <th mat-header-cell *matHeaderCellDef> TASKS </th>
+          <td mat-cell *matCellDef="let row">
+            <a class="task" href="#">
+              <i  class="material-icons">task</i>
+            </a>
+          </td>
+        </ng-container>          
                   
         <!-- Ações Column -->
         <ng-container matColumnDef="acoes">
-          <th mat-header-cell *matHeaderCellDef> AÇÕES </th>
-          <td mat-cell *matCellDef="let row">  </td>
+          <th class="mat-header" mat-header-cell *matHeaderCellDef> AÇÕES </th>
+          <td mat-cell *matCellDef="let row"> 
+            <a class="edit" href="#">
+              <i class="material-icons">edit</i>
+            </a>
+            <a  class="delete" href="#">
+              <i class="material-icons">delete</i>
+            </a>
+          </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
